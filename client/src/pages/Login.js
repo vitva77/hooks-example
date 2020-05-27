@@ -21,14 +21,15 @@ const Login = () => {
 				</div>
 				<Formik
 					initialValues={{
-						email: 'john.doe@gmail.com',
-						password: '123456'
+						email: '',
+						password: ''
 					}}
 					validationSchema={LoginSchema}
-					onSubmit={(values, { setSubmitting }) => {
+					onSubmit={(values, { setSubmitting, resetForm }) => {
 						setTimeout(() => {
 							alert(JSON.stringify(values, null, 2));
 							setSubmitting(false);
+							resetForm();
 						}, 400);
 					}}
 				>
