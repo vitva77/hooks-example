@@ -38,12 +38,12 @@ const Navbar = () => {
 					</ul>
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<NavLink to={'/login'} className="nav-link">
+							<NavLink to={'/auth/login'} className="nav-link">
 								Log in
 							</NavLink>
 						</li>
 						<li className="nav-item">
-							<NavLink to={'/signup'} className="nav-link">
+							<NavLink to={'/auth/signup'} className="nav-link">
 								Sign up
 							</NavLink>
 						</li>

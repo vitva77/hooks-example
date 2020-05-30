@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '@mdi/react';
-import { mdiLoginVariant } from '@mdi/js';
+import { mdiFingerprint } from '@mdi/js';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const LoginSchema = Yup.object().shape({
-	email: Yup.string().email('Invalid email address').required('Email is required'),
-	password: Yup.string().required('Password is required')
+	email: Yup.string().lowercase().email('Must be a valid email').required('Required'),
+	password: Yup.string().required('Required')
 });
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
 		<div className="row">
 			<div className="col-md-4 offset-md-4">
 				<div className="text-center mb-4">
-					<Icon path={mdiLoginVariant} size={5} color="#ddd" />
+					<Icon path={mdiFingerprint} size={5} color="#ddd" />
 					<h1 className="font-weight-normal mt-3">Member Login</h1>
 					<p>Login to access your dashboard.</p>
 				</div>
@@ -48,7 +48,7 @@ const Login = () => {
 							<div className="form-group">
 								<label htmlFor="password" className="d-block">
 									Password{' '}
-									<Link to="/forgot-password" className="float-right">
+									<Link to="/auth/forgot-password" className="float-right">
 										Forgot?
 									</Link>
 								</label>
@@ -76,7 +76,7 @@ const Login = () => {
 				</Formik>
 
 				<p className="text-center mt-4">
-					Don't have an account? <Link to="/signup">Sign up now</Link>
+					Don't have an account? <Link to="/auth/signup">Sign up now</Link>
 				</p>
 			</div>
 		</div>
