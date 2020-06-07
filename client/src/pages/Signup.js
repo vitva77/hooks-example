@@ -52,7 +52,7 @@ const Signup = () => {
 						}, 400);
 					}}
 				>
-					{({ errors, touched, isSubmitting }) => (
+					{({ errors, touched, isSubmitting, dirty, isValid }) => (
 						<Form>
 							<div className="row">
 								<div className="col-md-6 mb-3">
@@ -133,7 +133,7 @@ const Signup = () => {
 							<button
 								type="submit"
 								className="btn btn-primary btn-lg btn-block mt-4"
-								disabled={isSubmitting}
+								disabled={!dirty || !isValid || isSubmitting}
 							>
 								{isSubmitting ? 'Loading...' : 'Sign Up'}
 							</button>

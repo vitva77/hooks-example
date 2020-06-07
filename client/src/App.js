@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, useLocation, Redirect } from 'react-router-dom';
+import { Lines } from 'react-preloaders';
 
 //import './themes/default/style.scss';
 import './themes/first/style.scss';
@@ -36,16 +37,17 @@ const App = () => {
 				<div className="container mt-5">
 					<Switch>
 						<Route exact path="/" component={Home} />
-						<Route path="/about" component={About} />
-						<Route path="/contact" component={Contact} />
-						<Route path="/auth/login" component={Login} />
-						<Route path="/auth/forgot-password" component={ForgotPassword} />
-						<Route path="/auth/signup" component={Signup} />
+						<Route exact path="/about" component={About} />
+						<Route exact path="/contact" component={Contact} />
+						<Route exact path="/auth/login" component={Login} />
+						<Route exact path="/auth/forgot-password" component={ForgotPassword} />
+						<Route exact path="/auth/signup" component={Signup} />
 						<Route path="*">
 							<Redirect to="/" />
 						</Route>
 					</Switch>
 				</div>
+				<Lines background="#f5f5f5" color="#7e57c2" />
 			</Router>
 		</ThemeContextProvider>
 	);

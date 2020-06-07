@@ -31,7 +31,7 @@ const ForgotPassword = () => {
 						}, 400);
 					}}
 				>
-					{({ errors, touched, isSubmitting }) => (
+					{({ errors, touched, isSubmitting, dirty, isValid }) => (
 						<Form>
 							<div className="form-group">
 								<label htmlFor="email">Email address</label>
@@ -43,7 +43,11 @@ const ForgotPassword = () => {
 								/>
 								<ErrorMessage name="email" component="div" className="invalid-feedback" />
 							</div>
-							<button type="submit" className="btn btn-primary btn-lg btn-block" disabled={isSubmitting}>
+							<button
+								type="submit"
+								className="btn btn-primary btn-lg btn-block"
+								disabled={!dirty || !isValid || isSubmitting}
+							>
 								{isSubmitting ? 'Loading...' : 'Reset Password'}
 							</button>
 						</Form>

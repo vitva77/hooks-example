@@ -33,7 +33,7 @@ const Login = () => {
 						}, 400);
 					}}
 				>
-					{({ errors, touched, isSubmitting }) => (
+					{({ errors, touched, isSubmitting, dirty, isValid }) => (
 						<Form>
 							<div className="form-group">
 								<label htmlFor="email">Email address</label>
@@ -68,7 +68,11 @@ const Login = () => {
 									Keep me signed in
 								</label>
 							</div>
-							<button type="submit" className="btn btn-primary btn-lg btn-block" disabled={isSubmitting}>
+							<button
+								type="submit"
+								className="btn btn-primary btn-lg btn-block"
+								disabled={!dirty || !isValid || isSubmitting}
+							>
 								{isSubmitting ? 'Loading...' : 'Login'}
 							</button>
 						</Form>
